@@ -1,0 +1,183 @@
+@use "./_vars.scss" as *;
+@use "./mixins/pxToRem.scss" as *;
+
+.main {
+  $offset-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  @include pxToRem(row-gap, 24);
+  @include pxToRem(margin-top, 24);
+  margin-left: $offset-left;
+  @media (min-width: $breakpoints-lg) {
+    @include pxToRem(padding-top, 42);
+    @include pxToRem(padding-right, 25);
+    @include pxToRem(margin-top, 0);
+    @include pxToRem(margin-right, 0);
+  }
+  .main__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      right: calc(100% + 12px);
+      @include pxToRem(width, 8);
+      @include pxToRem(height, 40);
+      background-color: $cyan;
+      border-radius: 9999px;
+    }
+    h1 {
+      @include pxToRem(font-size, 28);
+      @include pxToRem(line-height, 40);
+      letter-spacing: -0.6px;
+      font-weight: bold;
+    }
+    .main__links {
+      display: none;
+      align-items: center;
+      @include pxToRem(gap, 32);
+      @media (min-width: $breakpoints-lg) {
+        display: flex;
+      }
+      .main__link {
+        display: flex;
+        align-items: center;
+        @include pxToRem(gap, 8);
+        @include pxToRem(font-size, 16);
+        font-weight: 500;
+        @include pxToRem(line-height, 24);
+        letter-spacing: -0.2px;
+      }
+    }
+  }
+  nav {
+    position: relative;
+    margin-left: calc($offset-left * -1);
+
+    &:after {
+      content: "";
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background: linear-gradient(
+        90deg,
+        $light-gray 0%,
+        transparent 4%,
+        transparent 90%,
+        $light-gray 100%
+      );
+    }
+    @media (min-width: $breakpoints-lg) {
+      &::after {
+        display: none;
+      }
+    }
+
+    .nav__links {
+      display: flex;
+      overflow: auto;
+      padding: 0 $offset-left;
+      .nav__link {
+        list-style-type: none;
+        @include pxToRem(font-size, 16);
+        white-space: nowrap;
+
+        padding: 8px 16px 8px 9px;
+        border: 2px solid transparent;
+        @include pxToRem(border-radius, 6);
+        &.nav__link--active {
+          background-color: #fff;
+          border: 2px solid $light-cyan;
+        }
+        a {
+          @include pxToRem(line-height, 24);
+          letter-spacing: -0.2px;
+          font-weight: 500;
+          color: $gray;
+        }
+      }
+      @media (min-width: $breakpoints-lg) {
+        .nav__links {
+          overflow: initial;
+          flex-wrap: wrap;
+          .nav__link {
+            padding: 8px 21px;
+          }
+        }
+      }
+    }
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    .article__content {
+      display: flex;
+      flex-direction: column;
+      @include pxToRem(gap, 16);
+      @include pxToRem(height, 130);
+      @media (min-width: $breakpoints-md) and (max-width: $breakpoints-lg) {
+        @include pxToRem(height, 194);
+      }
+      @media (min-width: $breakpoints-lg) {
+        @include pxToRem(height, 197);
+      }
+      .article__preview {
+        @include pxToRem(font-size, 14);
+        @include pxToRem(line-height, 20);
+        @include pxToRem(letter-spacing, 0.2);
+        @media (max-width: $breakpoints-md) {
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+      .article__link {
+        @include pxToRem(font-size, 16);
+        @include pxToRem(line-height, 24);
+        letter-spacing: -0.2px;
+        font-weight: 500;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include pxToRem(gap, 8);
+        width: fit-content;
+      }
+    }
+    .article__image {
+      margin-left: calc($offset-left * -1);
+      @include pxToRem(width, 320);
+    }
+    @media (min-width: $breakpoints-md) and (max-width: $breakpoints-lg) {
+      column-gap: 48px;
+      margin-right: 25px;
+      @include pxToRem(column-gap, 48);
+      @include pxToRem(margin-right, 25);
+      .article__image {
+        @include pxToRem(width, 360);
+      }
+    }
+    @media (min-width: $breakpoints-md) {
+      flex-direction: row;
+      .article__image {
+        border-radius: 6px;
+        margin-left: 0;
+      }
+    }
+    @media (min-width: $breakpoints-lg) {
+      @include pxToRem(column-gap, 36);
+      .article__image {
+        width: auto;
+        @include pxToRem(height, 300);
+      }
+    }
+  }
+}

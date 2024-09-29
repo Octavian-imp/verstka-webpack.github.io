@@ -1,12 +1,54 @@
+@use "./shared/styles/mixins/pxToRem.scss" as *;
+@use "./shared/styles/_vars.scss" as *;
+
+@import "~normalize.css";
+@import "./shared/styles/header.scss";
+@import "./shared/styles/main.scss";
+
 *,
 ::after,
 ::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $light-gray;
+}
+html,
+body {
+  font-family: "TT Lakes", sans-serif;
+  font-weight: normal;
   margin: 0;
   padding: 0;
 }
 
-.body {
-  min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+.action__button {
+  background-color: $red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include pxToRem(height, 40);
+  @include pxToRem(width, 40);
+  transition: all 0.2s ease-out;
+  &:hover {
+    filter: contrast(2);
+  }
 }

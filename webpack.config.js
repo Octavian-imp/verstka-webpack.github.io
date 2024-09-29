@@ -48,29 +48,14 @@ function getOptimization() {
 }
 
 /**
- * Returns style loaders for webpack, given an array of presets. If
- * tailwind is included in the presets, it adds postcss-loader to the
- * array. If scss is included, it adds sass-loader to the array. If
- * isDev is true, it adds style-loader with hmr and reloadAll options to
- * the array. If isDev is false, it adds MiniCssExtractPlugin.loader
- * to the array.
- *
- * @param {array} preset - Array of presets, which may include 'tailwind',
- *   'scss', or both.
+ * Returns style loaders for webpack, given an array of presets.
+ *  If scss is included, it adds sass-loader to the array.
+ * @param {array} preset - Array of presets,  'scss', or both.
  * @return {array} - Array of style loaders.
  */
 function getStyleLoaders(...preset) {
-  const config = ["css-loader"];
+  const config = ["style-loader", "css-loader", "postcss-loader"];
 
-  if (preset.findIndex((ext) => ext === "tailwind") !== -1) {
-    // adding postcss for supporting tailwind
-    config.unshift("style-loader");
-    config.push("postcss-loader");
-  } else {
-    config.unshift({
-      loader: MiniCssExtractPlugin.loader,
-    });
-  }
   if (preset.findIndex((ext) => ext === "scss") !== -1) {
     config.push("sass-loader");
   }
@@ -91,16 +76,11 @@ function getStyleLoaders(...preset) {
  * @return {object} - Object containing an array of module rules.
  */
 function getModuleRules(...addSupportFiles) {
-  const tailwindPreset =
-    addSupportFiles.findIndex((ext) => ext === "tailwind") !== -1
-      ? "tailwind"
-      : undefined;
-
   const config = {
     rules: [
       {
         test: /\.css$/,
-        use: getStyleLoaders(tailwindPreset),
+        use: getStyleLoaders(),
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -125,10 +105,6 @@ function getModuleRules(...addSupportFiles) {
 
   if (addSupportFiles.findIndex((ext) => ext === "scss") !== -1) {
     const presets = ["scss"];
-
-    if (addSupportFiles.findIndex((ext) => ext === "tailwind") !== -1) {
-      presets.push("tailwind");
-    }
 
     config.rules.push({
       test: /\.s[ac]ss$/,
@@ -206,8 +182,6 @@ module.exports = {
     port: PORT,
     open: true,
     hot: true,
-    compress: true,
-    historyApiFallback: true,
   },
   optimization: getOptimization(),
   plugins: [
@@ -220,17 +194,14 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     // раскомментировать при первом запуске со статикой
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       // for static files
-    //       from: path.resolve(__dirname, "src/assets"),
-    //       to: path.resolve(__dirname, "dist/assets"),
-    //     },
-    //   ],
-    // }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          // for static files
+          from: path.resolve(__dirname, "src/assets"),
+          to: path.resolve(__dirname, "dist/assets"),
+        },
+      ],
     }),
   ],
   module: getModuleRules("scss"),
