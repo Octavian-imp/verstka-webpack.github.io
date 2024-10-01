@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
   </head>
   <body>
-    <menu id="mob-menu" class="mob-menu">
+    <aside id="mob-menu" class="mob-menu">
       <div class="mob-menu__header">
         <button type="button" id="mob-menu__close" class="action__button">
           <img
@@ -17,12 +17,14 @@
             height="16"
           />
         </button>
-        <img
-          src="./assets/img/logo.png"
-          alt="CPS Logo"
-          width="96"
-          height="50"
-        />
+        <a href="/">
+          <img
+            src="./assets/img/logo.png"
+            alt="CPS Logo"
+            width="96"
+            height="50"
+          />
+        </a>
         <button type="button" class="action__button">
           <img
             src="./assets/icons/search.png"
@@ -33,16 +35,18 @@
         </button>
       </div>
 
-      <ul class="mob-menu__links">
-        <li class="mob-menu__link mob-menu__link--active">Ремонт техники</li>
-        <li class="mob-menu__link">Услуги и сервисы</li>
-        <li class="mob-menu__link">Корпоративным клиентам</li>
-        <li class="mob-menu__link">Продавцам техники</li>
-        <li class="mob-menu__link">Партнерам</li>
-        <li class="mob-menu__link">производителям</li>
-        <li class="mob-menu__link">наш сервисные центы</li>
-        <li class="mob-menu__link">контакты</li>
-      </ul>
+      <menu class="mob-menu__links">
+        <li class="mob-menu__link mob-menu__link--active">
+          <a href="#"> Ремонт техники </a>
+        </li>
+        <li class="mob-menu__link"><a href="#">Услуги и сервисы</a></li>
+        <li class="mob-menu__link"><a href="#">Корпоративным клиентам</a></li>
+        <li class="mob-menu__link"><a href="#">Продавцам техники</a></li>
+        <li class="mob-menu__link"><a href="#">Партнерам</a></li>
+        <li class="mob-menu__link"><a href="#">производителям</a></li>
+        <li class="mob-menu__link"><a href="#">наш сервисные центы</a></li>
+        <li class="mob-menu__link"><a href="#">контакты</a></li>
+      </menu>
 
       <div class="mob-menu__footer">
         <div class="mob-menu__buttons">
@@ -79,7 +83,7 @@
           <a href="#" class="mob-menu__lang">CH</a>
         </div>
       </div>
-    </menu>
+    </aside>
     <header class="header">
       <button id="menuBurger" type="button" class="action__button">
         <img
@@ -92,12 +96,14 @@
       <div class="header__info">
         <div style="" class="header__logo">
           <span class="header__divider"></span>
-          <img
-            src="./assets/img/logo.png"
-            alt="CPS Logo"
-            width="96"
-            height="50"
-          />
+          <a href="/">
+            <img
+              src="./assets/img/logo.png"
+              alt="CPS Logo"
+              width="96"
+              height="50"
+            />
+          </a>
         </div>
         <div class="header__action-btns">
           <button type="button" class="action__button">
