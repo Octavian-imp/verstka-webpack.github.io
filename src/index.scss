@@ -2,6 +2,7 @@
 @use "./shared/styles/_vars.scss" as *;
 
 @import "~normalize.css";
+@import "~swiper/swiper-bundle.css";
 @import "./shared/styles/header.scss";
 @import "./shared/styles/main.scss";
 
@@ -39,7 +40,7 @@ body {
   padding: 0;
 }
 
-.action__button {
+.action-button {
   background-color: $red;
   border-radius: 50%;
   display: flex;
@@ -51,4 +52,17 @@ body {
   &:hover {
     filter: contrast(2);
   }
+}
+
+.more-button {
+  @include pxToRem(font-size, 16);
+  @include pxToRem(line-height, 24);
+  letter-spacing: -0.2px;
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include pxToRem(gap, 8);
+  width: fit-content;
 }

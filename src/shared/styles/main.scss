@@ -140,16 +140,6 @@
         }
       }
       .article__link {
-        @include pxToRem(font-size, 16);
-        @include pxToRem(line-height, 24);
-        letter-spacing: -0.2px;
-        font-weight: 500;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include pxToRem(gap, 8);
-        width: fit-content;
       }
     }
     .article__image {
@@ -177,6 +167,147 @@
       .article__image {
         width: auto;
         @include pxToRem(height, 300);
+      }
+    }
+  }
+  .repair-technics {
+    display: flex;
+    flex-direction: column;
+    @include pxToRem(row-gap, 16);
+    @media (min-width: $breakpoints-md) {
+      & {
+        @include pxToRem(row-gap, 24);
+      }
+    }
+    &__header {
+      background: linear-gradient(
+        90deg,
+        rgb(248, 248, 248) 0%,
+        rgb(255, 255, 255) 100%
+      );
+      border-bottom: 1px solid $light-cyan;
+      margin-left: calc($offset-left * -1);
+      padding: 1.5rem 1rem;
+      h2 {
+        text-transform: uppercase;
+        @include pxToRem(font-size, 16);
+        @include pxToRem(line-height, 24);
+        @include pxToRem(letter-spacing, -0.2);
+        font-weight: 500;
+        color: $gray;
+      }
+    }
+
+    .brands-slider {
+      max-width: 100vw;
+      @include pxToRem(row-gap, 16);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-left: calc($offset-left * -1);
+
+      &:after {
+        content: "";
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background: linear-gradient(
+          90deg,
+          $light-gray 0%,
+          transparent 4%,
+          transparent 90%,
+          $light-gray 100%
+        );
+      }
+      @media (min-width: $breakpoints-md) {
+        & {
+          margin-left: 0;
+          margin-right: $offset-left;
+          &:after {
+            display: none;
+          }
+        }
+      }
+      .swiper-wrapper {
+        align-content: stretch;
+        @media (min-width: $breakpoints-md) {
+          & {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            @include pxToRem(grid-auto-rows, 78);
+            @include pxToRem(max-height, 180);
+            overflow-y: hidden;
+            @include pxToRem(column-gap, 24);
+            @include pxToRem(row-gap, 16);
+            transition: all 0.2s ease-out;
+            &.brands-slider__wrapper--active {
+              max-height: 100vh;
+            }
+          }
+        }
+        .brands-slider {
+          &__slide {
+            background-color: #fff;
+            @include pxToRem(padding, 16);
+            @include pxToRem(border-radius, 6);
+            border: 1px solid #eaeaea;
+            display: flex;
+            height: auto;
+            align-items: center;
+            justify-content: space-between;
+          }
+          &__button {
+            position: relative;
+            @include pxToRem(width, 40);
+            @include pxToRem(height, 40);
+            border: 2px solid $red;
+            border-radius: 50%;
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              @include pxToRem(width, 8);
+              @include pxToRem(height, 8);
+              border-right: 3px solid $red;
+              border-bottom: 3px solid $red;
+              border-radius: 1px;
+              transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+            }
+          }
+        }
+      }
+      .swiper-pagination {
+        position: static;
+        .swiper-pagination-bullet-active {
+          background-color: $gray;
+        }
+        @media (min-width: $breakpoints-md) {
+          & {
+            display: none;
+          }
+        }
+      }
+      .brands-slider__more-button {
+        display: none;
+        @media (min-width: $breakpoints-md) {
+          & {
+            display: flex;
+            & img {
+              transition: transform 0.2s ease;
+            }
+            &.brands-slider__more-button--active img {
+              transform: rotate(180deg);
+            }
+          }
+        }
       }
     }
   }
