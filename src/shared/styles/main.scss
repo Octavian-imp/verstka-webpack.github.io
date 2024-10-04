@@ -3,6 +3,7 @@
 
 .main {
   $offset-left: 1rem;
+  $offset-right: 25px;
   display: flex;
   flex-direction: column;
   @include pxToRem(row-gap, 24);
@@ -84,11 +85,11 @@
       display: flex;
       overflow: auto;
       padding: 0 $offset-left;
+      list-style-type: none;
       .nav__link {
-        list-style-type: none;
         @include pxToRem(font-size, 16);
         white-space: nowrap;
-
+        display: inline-block;
         padding: 8px 16px 8px 9px;
         border: 2px solid transparent;
         @include pxToRem(border-radius, 6);
@@ -187,15 +188,14 @@
       );
       border-bottom: 1px solid $light-cyan;
       margin-left: calc($offset-left * -1);
+      margin-right: calc($offset-right * -1);
       padding: 1.5rem 1rem;
-      h2 {
-        text-transform: uppercase;
-        @include pxToRem(font-size, 16);
-        @include pxToRem(line-height, 24);
-        @include pxToRem(letter-spacing, -0.2);
-        font-weight: 500;
-        color: $gray;
-      }
+      text-transform: uppercase;
+      @include pxToRem(font-size, 16);
+      @include pxToRem(line-height, 24);
+      @include pxToRem(letter-spacing, -0.2);
+      font-weight: 500;
+      color: $gray;
     }
 
     .brands-slider {
@@ -227,7 +227,7 @@
       @media (min-width: $breakpoints-md) {
         & {
           margin-left: 0;
-          margin-right: $offset-left;
+          margin-right: 0;
           &:after {
             display: none;
           }
@@ -239,7 +239,7 @@
           & {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
             @include pxToRem(grid-auto-rows, 78);
             @include pxToRem(max-height, 180);
             overflow-y: hidden;
@@ -251,6 +251,11 @@
             }
           }
         }
+        @media (max-width: $breakpoints-md) {
+          .swiper-slide {
+            height: auto;
+          }
+        }
         .brands-slider {
           &__slide {
             background-color: #fff;
@@ -258,9 +263,12 @@
             @include pxToRem(border-radius, 6);
             border: 1px solid #eaeaea;
             display: flex;
-            height: auto;
+            height: 100%;
             align-items: center;
             justify-content: space-between;
+            img {
+              user-select: none;
+            }
           }
           &__button {
             position: relative;

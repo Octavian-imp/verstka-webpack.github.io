@@ -2,6 +2,9 @@ import Swiper from "swiper";
 import { FreeMode, Pagination } from "swiper/modules";
 
 import "@/index.scss";
+import { createIcons, icons } from "lucide";
+
+createIcons({ icons });
 
 const swiperOptions = {
   modules: [FreeMode, Pagination],

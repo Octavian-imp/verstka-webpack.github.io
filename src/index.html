@@ -10,12 +10,13 @@
     <aside id="mob-menu" class="mob-menu">
       <div class="mob-menu__header">
         <button type="button" id="mob-menu__close" class="action-button">
-          <img
+          <!-- <img
             src="./assets/icons/close.png"
             alt="close button"
             width="16"
             height="16"
-          />
+          /> -->
+          <i data-lucide="x" size="16" class="lucide-icon"></i>
         </button>
         <a href="/">
           <img
@@ -25,13 +26,14 @@
             height="50"
           />
         </a>
-        <button type="button" class="action-button">
-          <img
+        <button type="button" class="action-button ml-auto">
+          <i data-lucide="search" size="17" class="lucide-icon"></i>
+          <!-- <img
             src="./assets/icons/search.png"
             alt="close button"
             width="17"
             height="17"
-          />
+          /> -->
         </button>
       </div>
 
@@ -51,28 +53,40 @@
       <div class="mob-menu__footer">
         <div class="mob-menu__buttons">
           <button class="mob-menu__button action-button">
-            <img
-              src="./assets/icons/call.png"
-              alt="call button"
-              width="17"
-              height="17"
-            />
+            <i
+              data-lucide="phone"
+              fill="#fff"
+              stroke-width="1"
+              class="lucide-icon icon-phone"
+            ></i>
           </button>
           <button class="mob-menu__button action-button">
-            <img
-              src="./assets/icons/message.png"
-              alt="send message button"
-              width="20"
-              height="20"
-            />
+            <object
+              type="image/svg+xml"
+              data="./assets/icons/message.svg"
+              class="lucide-icon"
+            >
+              <img
+                src="./assets/icons/message.svg"
+                alt="message button"
+                height="20"
+                width="20"
+              />
+            </object>
           </button>
           <button class="mob-menu__button action-button">
-            <img
-              src="./assets/icons/user.png"
-              alt="user button"
-              width="20"
-              height="18"
-            />
+            <object
+              type="image/svg+xml"
+              data="./assets/icons/user.svg"
+              class="lucide-icon"
+            >
+              <img
+                src="./assets/icons/user.svg"
+                alt="user button"
+                height="18"
+                width="20"
+              />
+            </object>
           </button>
         </div>
         <a href="mailto:mail@cps.com" class="mob-menu__email">mail@cps.com</a>
@@ -86,12 +100,7 @@
     </aside>
     <header class="header">
       <button id="menuBurger" type="button" class="action-button">
-        <img
-          src="./assets/icons/menu-burger.png"
-          alt=""
-          width="18"
-          height="16"
-        />
+        <i data-lucide="menu" size="20" class="lucide-icon"></i>
       </button>
       <div class="header__info">
         <div style="" class="header__logo">
@@ -107,32 +116,71 @@
         </div>
         <div class="header__action-btns">
           <button type="button" class="action-button">
-            <img src="./assets/icons/call.png" alt="" width="18" height="18" />
+            <i
+              data-lucide="phone"
+              fill="#fff"
+              stroke-width="1"
+              class="lucide-icon icon-phone"
+            ></i>
           </button>
           <button type="button" class="action-button">
-            <img
-              src="./assets/icons/message.png"
-              alt=""
-              width="20"
-              height="20"
-            />
+            <object
+              type="image/svg+xml"
+              data="./assets/icons/message.svg"
+              class="lucide-icon"
+            >
+              <img
+                src="./assets/icons/message.svg"
+                alt="message button"
+                height="20"
+                width="20"
+              />
+            </object>
           </button>
           <button type="button" class="action-button">
-            <img src="./assets/icons/user.png" alt="" width="20" height="18" />
+            <object
+              type="image/svg+xml"
+              data="./assets/icons/user.svg"
+              class="lucide-icon"
+            >
+              <img
+                src="./assets/icons/user.svg"
+                alt="user button"
+                height="18"
+                width="20"
+              />
+            </object>
           </button>
           <span class="header__divider"></span>
         </div>
       </div>
       <button type="button" class="action-button">
-        <img src="./assets/icons/settings.png" alt="" width="20" height="18" />
+        <object
+          type="image/svg+xml"
+          data="./assets/icons/settings.svg"
+          class="lucide-icon"
+        >
+          <img
+            src="./assets/icons/settings.svg"
+            alt="settings button"
+            height="18"
+            width="20"
+          />
+        </object>
       </button>
       <button type="button" class="action-button">
-        <img
-          src="./assets/icons/ticket-search.png"
-          alt=""
-          width="16"
-          height="20"
-        />
+        <object
+          type="image/svg+xml"
+          data="./assets/icons/ticket-search.svg"
+          class="lucide-icon"
+        >
+          <img
+            src="./assets/icons/ticket-search.svg"
+            alt="ticket search button"
+            height="20"
+            width="16"
+          />
+        </object>
       </button>
     </header>
 
@@ -143,46 +191,60 @@
           <a href="#" class="main__link"
             >Оставить заявку
             <span class="action-button">
-              <img
-                src="./assets/icons/settings.png"
-                alt=""
-                width="20"
-                height="18"
-              />
+              <object
+                type="image/svg+xml"
+                data="./assets/icons/settings.svg"
+                class="lucide-icon"
+              >
+                <img
+                  src="./assets/icons/settings.svg"
+                  alt="settings button"
+                  height="18"
+                  width="20"
+                />
+              </object>
             </span>
           </a>
           <a href="#" class="main__link"
             >Ремонтируемые бренды
             <span class="action-button">
-              <img
-                src="./assets/icons/ticket-search.png"
-                alt=""
-                width="16"
-                height="20"
-              />
+              <object
+                type="image/svg+xml"
+                data="./assets/icons/ticket-search.svg"
+                class="lucide-icon"
+              >
+                <img
+                  src="./assets/icons/ticket-search.svg"
+                  alt="ticket search button"
+                  height="20"
+                  width="16"
+                />
+              </object>
             </span>
           </a>
         </div>
       </div>
       <nav>
         <ul class="nav__links">
-          <li class="nav__link nav__link--active">
-            <a href="#"> Ремонтируемые бренды </a>
+          <li>
+            <a href="#" class="nav__link nav__link--active">
+              Ремонтируемые бренды
+            </a>
           </li>
-          <li class="nav__link">
-            <a href="#"> Дополнительные услуги </a>
+          <li>
+            <a href="#" class="nav__link"> Дополнительные услуги </a>
           </li>
-          <li class="nav__link">
-            <a href="#"> Цены на услуги </a>
+          <li>
+            <a href="#" class="nav__link"> Цены на услуги </a>
           </li>
-          <li class="nav__link">
-            <a href="#"> Адреса сервисных центров </a>
+          <li>
+            <a href="#" class="nav__link"> Адреса сервисных центров </a>
           </li>
-          <li class="nav__link">
-            <a href="#"> Специальные центры </a>
+          <li>
+            <a href="#" class="nav__link"> Специальные центры </a>
           </li>
-          <li class="nav__link">
-            <a href="#"> Отзывы </a>
+          <li>
+            <a href="#" class="nav__link"> Отзывы </a>
           </li>
         </ul>
       </nav>
@@ -209,95 +271,120 @@
         />
       </article>
       <article class="repair-technics">
-        <div class="repair-technics__header">
-          <h2>ремонт техники различных брендов</h2>
-        </div>
+        <h2 class="repair-technics__header">
+          ремонт техники различных брендов
+        </h2>
         <div class="swiper repair-technics__content brands-slider">
           <div class="swiper-wrapper brands-slider__wrapper">
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="108"
-                height="32"
-                alt="lenovo"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="108"
+                  height="32"
+                  alt="lenovo"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/samsung.png"
-                width="116"
-                height="38"
-                alt="samsung"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/samsung.png"
+                  width="116"
+                  height="38"
+                  alt="samsung"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/apple.png"
-                width="44"
-                height="44"
-                alt="apple"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/apple.png"
+                  width="44"
+                  height="44"
+                  alt="apple"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/bosch.png"
-                width="128"
-                height="28"
-                alt="bosch"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/bosch.png"
+                  width="128"
+                  height="28"
+                  alt="bosch"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img src="./assets/img/hp.png" width="52" height="52" alt="hp" />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/hp.png"
+                  width="52"
+                  height="52"
+                  alt="hp"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="94"
-                height="24"
-                alt="acer"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="94"
+                  height="24"
+                  alt="acer"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="94"
-                height="24"
-                alt="acer"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="94"
+                  height="24"
+                  alt="acer"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="94"
-                height="24"
-                alt="acer"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="94"
+                  height="24"
+                  alt="acer"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="94"
-                height="24"
-                alt="acer"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="94"
+                  height="24"
+                  alt="acer"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
-            <div class="swiper-slide brands-slider__slide">
-              <img
-                src="./assets/img/lenovo.png"
-                width="94"
-                height="24"
-                alt="acer"
-              />
-              <button type="button" class="brands-slider__button"></button>
+            <div class="swiper-slide">
+              <a href="#" class="brands-slider__slide">
+                <img
+                  src="./assets/img/lenovo.png"
+                  width="94"
+                  height="24"
+                  alt="acer"
+                />
+                <button type="button" class="brands-slider__button"></button>
+              </a>
             </div>
           </div>
           <div class="swiper-pagination"></div>
