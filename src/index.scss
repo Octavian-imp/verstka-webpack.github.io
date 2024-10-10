@@ -3,8 +3,10 @@
 
 @import "~normalize.css";
 @import "~swiper/swiper-bundle.css";
+@import "./shared/styles/components/index.scss";
 @import "./shared/styles/header.scss";
 @import "./shared/styles/main.scss";
+@import "./shared/styles/footer.scss";
 
 *,
 ::after,
@@ -38,6 +40,15 @@ body {
   min-height: 100vh;
   width: 100vw;
   background-color: $light-gray;
+  @media (min-width: $breakpoints-lg) {
+    & {
+      display: grid;
+      grid-template-areas:
+        "menu main"
+        "menu footer";
+      grid-template-columns: 320px 1fr;
+    }
+  }
 }
 html,
 body {
@@ -56,6 +67,9 @@ body {
   @include pxToRem(height, 40);
   @include pxToRem(width, 40);
   transition: all 0.2s ease-out;
+  * {
+    pointer-events: none;
+  }
   &:hover {
     filter: contrast(2);
   }

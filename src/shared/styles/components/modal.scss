@@ -1,0 +1,96 @@
+@use "../_vars.scss" as *;
+@use "../mixins/pxToRem.scss" as *;
+
+.modal {
+  &__wrapper {
+    display: none;
+    background-color: rgba(#fff, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    &--active {
+      display: block;
+      animation: fadeIn 0.4s ease-out forwards;
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__container {
+    position: absolute;
+    background-color: #fff;
+    padding: 1.5rem 1rem;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include pxToRem(row-gap, 24);
+    filter: drop-shadow(-2px 0px 4px rgba(69, 79, 126, 0.02))
+      drop-shadow(16px 0px 52px rgba(14, 24, 80, 0.2));
+    @media (min-width: $breakpoints-lg) {
+      & {
+        @include pxToRem(width, 440);
+        left: unset;
+        right: 0;
+        animation: translateX 0.4s ease-out forwards;
+        @keyframes translateX {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    @include pxToRem(row-gap, 40);
+  }
+  &__btn-close {
+    @media (min-width: $breakpoints-lg) {
+      & {
+        position: absolute;
+        transform: translateX(-104px);
+      }
+    }
+  }
+  &__title {
+    @include pxToRem(font-size, 24);
+    @include pxToRem(line-height, 32);
+    @include pxToRem(letter-spacing, -0.6);
+    font-weight: bold;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      @include pxToRem(width, 8);
+      @include pxToRem(height, 40);
+      background-color: $cyan;
+      border-radius: 9999px;
+      @include pxToRem(left, -20);
+      @include pxToRem(top, -8);
+      clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    }
+  }
+  &__main {
+    overflow-y: auto;
+  }
+  &__btn-submit {
+    align-self: flex-end;
+  }
+}
