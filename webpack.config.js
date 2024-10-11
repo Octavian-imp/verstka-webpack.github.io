@@ -170,6 +170,7 @@ module.exports = {
   output: {
     filename: "[name].[hash].js",
     path: __dirname + "/dist",
+    asyncChunks: true,
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".css"],
