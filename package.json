@@ -30,7 +30,8 @@
   "main": "postcss.config.js",
   "scripts": {
     "dev": "cross-env MODE=dev webpack serve ",
-    "build": "cross-env MODE=production webpack",
+    "dev:build": "cross-env MODE=prod webpack serve ",
+    "build": "cross-env MODE=prod webpack",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "",
