@@ -4,10 +4,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const path = require("path")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserWebpackPlugin = require("terser-webpack-plugin")
-const webpack = require("webpack")
-const dotenv = require("dotenv").config({
-  path: path.join(__dirname, ".env"),
-})
 
 const isDev = process.env.MODE === "development" || process.env.MODE === "dev"
 const PORT = process.env.PORT || 3000
@@ -213,9 +209,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash].css",
-    }),
-    new webpack.DefinePlugin({
-      "process.env": dotenv.parsed,
     }),
   ],
   module: getModuleRules("scss"),
