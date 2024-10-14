@@ -216,7 +216,7 @@
       );
       border-bottom: 1px solid $light-cyan;
       margin-left: calc($offset-left * -1);
-      margin-right: calc($offset-right * -1);
+      margin-right: 0;
       padding: 1.5rem 1rem;
       text-transform: uppercase;
       @include pxToRem(font-size, 16);
@@ -226,7 +226,6 @@
       color: $gray;
       @media (min-width: $breakpoints-md) {
         & {
-          margin-right: 0;
           padding-right: 0;
         }
       }

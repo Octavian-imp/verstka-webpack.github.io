@@ -130,10 +130,15 @@ const btnCloseModalSelectorClass = "modal__btn-close"
 
 document.querySelectorAll("." + btnOpenModalSelectorClass).forEach((el) => {
   el.addEventListener("click", (e) => {
+    e.stopPropagation()
+
     document.body.style.overflowY = "hidden"
+
     const modalId = e.target.dataset.modalId
     const modal = document.getElementById(modalId)
+
     modal.classList.add(modalActiveClass)
+
     function closeModal() {
       document.body.style.overflowY = "auto"
       const timingAnimation = 200
@@ -145,8 +150,26 @@ document.querySelectorAll("." + btnOpenModalSelectorClass).forEach((el) => {
         modal.classList.remove(modalActiveClass)
       }, timingAnimation)
     }
+
+    // закрытие по клику на кнопку
     modal
       .querySelector("." + btnCloseModalSelectorClass)
       .addEventListener("click", closeModal, { once: true })
+
+    // закрытие по клику вне модального окна
+    document.addEventListener(
+      "click",
+      (e) => {
+        if (
+          !(
+            modal.firstElementChild.contains(e.target) ||
+            e.target === modal.firstChild
+          )
+        ) {
+          closeModal()
+        }
+      },
+      { once: true }
+    )
   })
 })
